@@ -71,6 +71,7 @@ let routes = [
     {path: "/dashboard", component: require("./components/Dashboard.vue").default},
     {path: "/users", component: require("./components/ManageUsers.vue").default},
     {path: "/events", component: require("./components/ManageEvents.vue").default},
+    {path: "*", component: require("./components/NotFound.vue").default},
 ]
 
 const router = new VueRouter({

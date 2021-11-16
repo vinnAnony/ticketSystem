@@ -197,11 +197,10 @@ export default {
                             this.$Progress.start();
                             axios.delete('api/users/'+id)
                                 .then(() => {
-                                    Swal.fire(
-                                    'Deleted!',
-                                    'User has been deleted.',
-                                    'success'
-                                    );
+                                    Toast.fire({
+                                        icon: 'success',
+                                        title: 'User deleted successfully'
+                                        });
                                     Fire.$emit('AfterUserCreate');
                                     this.$Progress.finish();
                                 })
