@@ -13,3 +13,75 @@ $fa-font-path: "../webfonts";
 @import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
 @import "~@fortawesome/fontawesome-free/scss/solid.scss";
 @import "~@fortawesome/fontawesome-free/scss/brands.scss";
+
+$blue: #007bff;
+$indigo: #6610f2;
+$purple: #6f42c1;
+$pink: #e83e8c;
+$red: #dc3545;
+$orange: #fd7e14;
+$yellow: #ffc107;
+$green: #28a745;
+$teal: #20c997;
+$cyan: #17a2b8;
+$white: #ffffff;
+$gray: #6c757d;
+$purp-theme: #827ffe;
+
+.blue {
+    color: blue;
+}
+.indigo {
+    color: indigo;
+}
+.purple {
+    color: purple;
+}
+.pink {
+    color: pink;
+}
+.red {
+    color: red;
+}
+.orange {
+    color: orange;
+}
+.yellow {
+    color: yellow;
+}
+.green {
+    color: green;
+}
+.teal {
+    color: teal;
+}
+.cyan {
+    color: cyan;
+}
+.white {
+    color: white;
+}
+.gray {
+    color: gray;
+}
+.gray-dark {
+    color: #343a40;
+}
+.purp-theme {
+    color: #827ffe;
+}
+.ic-sm {
+    font-size: 10px;
+}
+.router-link-exact-active {
+    color: #ffffff !important;
+    background-color: $purp-theme;
+}
+.router-link-exact-active:hover {
+    color: #ffffff !important;
+    background-color: $purp-theme !important;
+}
+.router-link-exact-active:focus {
+    color: #ffffff !important;
+    background-color: $purp-theme !important;
+}

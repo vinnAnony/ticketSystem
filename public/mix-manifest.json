@@ -1,4 +1,8 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/css/extra.css": "/css/extra.css",
+    "/fonts/Nunito.woff2": "/fonts/Nunito.woff2",
+    "/fonts/Ubuntu-Bold.ttf": "/fonts/Ubuntu-Bold.ttf",
+    "/fonts/Ubuntu-Regular.ttf": "/fonts/Ubuntu-Regular.ttf"
 }

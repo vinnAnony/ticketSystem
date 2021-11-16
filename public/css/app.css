@@ -67901,3 +67901,78 @@ readers do not read off random characters that represent icons */
   font-family: "Font Awesome 5 Brands";
   font-weight: 400;
 }
+
+.blue {
+  color: blue;
+}
+
+.indigo {
+  color: indigo;
+}
+
+.purple {
+  color: purple;
+}
+
+.pink {
+  color: pink;
+}
+
+.red {
+  color: red;
+}
+
+.orange {
+  color: orange;
+}
+
+.yellow {
+  color: yellow;
+}
+
+.green {
+  color: green;
+}
+
+.teal {
+  color: teal;
+}
+
+.cyan {
+  color: cyan;
+}
+
+.white {
+  color: white;
+}
+
+.gray {
+  color: gray;
+}
+
+.gray-dark {
+  color: #343a40;
+}
+
+.purp-theme {
+  color: #827ffe;
+}
+
+.ic-sm {
+  font-size: 10px;
+}
+
+.router-link-exact-active {
+  color: #ffffff !important;
+  background-color: #827ffe;
+}
+
+.router-link-exact-active:hover {
+  color: #ffffff !important;
+  background-color: #827ffe !important;
+}
+
+.router-link-exact-active:focus {
+  color: #ffffff !important;
+  background-color: #827ffe !important;
+}
