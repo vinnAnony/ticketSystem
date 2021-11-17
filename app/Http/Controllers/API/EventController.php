@@ -47,6 +47,7 @@ class EventController extends Controller
             'regular_price' => $request['regular_price'],
             'vip_price' => $request['vip_price'],
             'event_date' => $request['event_date'],
+            'remaining_tickets' => $request['max_attendees'],
         ]);
     }
 

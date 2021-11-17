@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\EventController;
+use App\Http\Controllers\API\ReservationController;
 use App\Http\Controllers\API\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -23,3 +24,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::resource("users", UserController::class);
 Route::resource("events", EventController::class);
+Route::resource("reservations", ReservationController::class);

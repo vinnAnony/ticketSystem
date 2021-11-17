@@ -8,6 +8,18 @@ require('./bootstrap');
 
 window.Vue = require('vue').default;
 
+//Declare user id globally
+Vue.prototype.$userId = document.querySelector("meta[name='user_id']").getAttribute('content');
+
+//Add filters
+import moment from "moment";
+Vue.filter('firstToUpper', function(text){
+  return text.charAt(0).toUppercase + text.slice(1)
+});
+Vue.filter('systemDate', function(date){
+  return moment(date).format('Do MMM YYYY');
+})
+
 import Gate from "./Gate"
 Vue.prototype.$gate = new Gate(window.user);
 
@@ -68,10 +80,12 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter)
 
 let routes = [
+    {path: "*", component: require("./components/NotFound.vue").default},
     {path: "/dashboard", component: require("./components/Dashboard.vue").default},
     {path: "/users", component: require("./components/ManageUsers.vue").default},
     {path: "/events", component: require("./components/ManageEvents.vue").default},
-    {path: "*", component: require("./components/NotFound.vue").default},
+    {path: "/home", component: require("./components/Landing.vue").default},
+    {path: "/reservations", component: require("./components/Reservations.vue").default},
 ]
 
 const router = new VueRouter({
@@ -90,10 +104,12 @@ const router = new VueRouter({
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('dashboard-component', require('./components/Dashboard.vue').default);
-Vue.component('m-users-component', require('./components/ManageUsers.vue').default);
-Vue.component('m-events-component', require('./components/ManageEvents.vue').default);
+Vue.component('dashboard', require('./components/Dashboard.vue').default);
+Vue.component('users', require('./components/ManageUsers.vue').default);
+Vue.component('events', require('./components/ManageEvents.vue').default);
 Vue.component('not-found', require('./components/NotFound.vue').default);
+Vue.component('landing', require('./components/Landing.vue').default);
+Vue.component('reservations', require('./components/Reservations.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

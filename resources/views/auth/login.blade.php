@@ -6,7 +6,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-	<title>Login</title>
+	<title>@yield('title',"cytonTickets") Login</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -53,6 +53,16 @@
 							@if (Route::has('password.request'))
 								<a class=" txt1" href="{{ route('password.request') }}">
 									{{ __('Forgot Your Password?') }}
+								</a>
+							@endif
+						</div>
+					</div>
+
+					<div class="flex-sb-m w-full p-t-3 p-b-24">
+						<div>
+							@if (Route::has('register'))
+								<a class=" txt1" href="{{ route('register') }}">
+									Don't have an account?
 								</a>
 							@endif
 						</div>

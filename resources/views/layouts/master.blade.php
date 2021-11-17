@@ -8,6 +8,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
+  @if (Auth::check()) 
+  <meta name="user_id" content="{{ Auth::user()->id }}" />
+  @endif 
 
   <title>@yield('title',"cytonTickets")</title>
 
@@ -17,7 +20,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <div class="wrapper" id="app">
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light sticky-top">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -82,7 +85,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4 position-fixed">
     <!-- Brand Logo -->
   <a href="{{ route('home') }}" class="brand-link">
       <img src="/images/vinn.jpg" alt="" class="brand-image img-circle elevation-3"
@@ -116,50 +119,38 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </p>
             </router-link>
           </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-wrench"></i>
-              <p>
-                Events
-                <i class="right fas fa-angle-right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <router-link to="events" class="nav-link">
-                      <i class="fas fa-circle ic-sm"></i>
-                      <p>Manage Events</p>
-                    </router-link>
-                  </li>
-            </ul>
+
+          @can('isCustomer')
+          <li class="nav-item">
+            <router-link to="events" class="nav-link">
+              <i class="nav-icon fas fa-calendar-check"></i>
+              <p>My Reservations</p>
+            </router-link>
           </li>
+          @endcan
 
           @can('isAdmin')
-            <li class="nav-item has-treeview menu-close">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-cogs"></i>
-                <p>
-                  System
-                  <i class="right fas fa-angle-right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <router-link to="/users" class="nav-link">
-                    <i class="fas fa-circle ic-sm"></i>
-                    <p>Manage Users</p>
-                  </router-link>
-                </li>
-              </ul>
-            </li>
-            @endcan
+          <li class="nav-item">
+            <router-link to="events" class="nav-link">
+              <i class="nav-icon fas fa-calendar-alt"></i>
+              <p>Manage Events</p>
+            </router-link>
+          </li>
+
+          <li class="nav-item">
+            <router-link to="/users" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>Manage Users</p>
+            </router-link>
+          </li>
+          @endcan
           
           <li class="nav-item">
 
           <a class="nav-link" href="{{ route('logout') }}"
               onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
-              <i class="fas fa-power-off fa-lg mr-2"></i>{{ __('Logout') }}
+              <i class="nav-icon fas fa-power-off fa-lg mr-2"></i>{{ __('Logout') }}
           </a>
 
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
