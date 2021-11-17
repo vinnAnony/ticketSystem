@@ -21,7 +21,7 @@ class ReservationController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth:api');
+        //$this->middleware('auth:api');
     }
 
     public function index()
@@ -111,7 +111,10 @@ class ReservationController extends Controller
      */
     public function show($id)
     {
-        //
+        return DB::table('reservations')
+            ->select('*')
+            ->where('user_id', $id)
+            ->paginate(50);
     }
 
     /**

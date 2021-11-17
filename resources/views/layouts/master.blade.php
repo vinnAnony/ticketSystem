@@ -122,7 +122,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           @can('isCustomer')
           <li class="nav-item">
-            <router-link to="events" class="nav-link">
+            <router-link to="reservations" class="nav-link">
               <i class="nav-icon fas fa-calendar-check"></i>
               <p>My Reservations</p>
             </router-link>

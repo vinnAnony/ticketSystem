@@ -147,7 +147,7 @@ export default {
         //Fetch events every 3 seconds
         //setInterval(() => {this.fetchAllEvents()}, 3000);
         
-        console.log(this.currentUserId);
+        //console.log(this.currentUserId);
     },
 
 }
