@@ -16,5 +16,6 @@ class Event extends Model
         'regular_price',
         'vip_price',
         'event_date',
+        'remaining_tickets',
     ];
 }

@@ -120,14 +120,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </router-link>
           </li>
 
-          @can('isCustomer')
           <li class="nav-item">
             <router-link to="reservations" class="nav-link">
               <i class="nav-icon fas fa-calendar-check"></i>
               <p>My Reservations</p>
             </router-link>
           </li>
-          @endcan
 
           @can('isAdmin')
           <li class="nav-item">

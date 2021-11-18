@@ -21,6 +21,8 @@
                         <th>Event Name</th>
                         <th>Venue</th>
                         <th>Max. Attendees</th>
+                        <th>Sold</th>
+                        <th>Remaining</th>
                         <th>Regular Price</th>
                         <th>VIP Price</th>
                         <th>Event Date</th>
@@ -32,6 +34,8 @@
                         <td>{{event.event_name}}</td>
                         <td>{{event.venue_name}}</td>
                         <td>{{event.max_attendees}}</td>
+                        <td>{{event.sold_tickets}}</td>
+                        <td>{{event.remaining_tickets}}</td>
                         <td>{{event.regular_price}}</td>
                         <td>{{event.vip_price}}</td>
                         <td>{{event.event_date}}</td>

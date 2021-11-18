@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Mail\ReservationEmail;
+use App\Models\Event;
 use App\Models\Reservation;
 use Exception;
 use Illuminate\Http\JsonResponse;
@@ -62,6 +63,21 @@ class ReservationController extends Controller
                     'event_date' => $request['event_date'],
                 ]);
 
+                //Update sold & remaining tickets
+                $oldSoldTickets = DB::table('events')
+                    ->select('sold_tickets')
+                    ->where('id', $request['event_id'])
+                    ->first()->sold_tickets;
+                $oldRemTickets = DB::table('events')
+                    ->select('remaining_tickets')
+                    ->where('id', $request['event_id'])
+                    ->first()->remaining_tickets;
+                $totalBookedTicks = $request['regular_seats'] + $request['vip_seats'];
+                $newSoldTickets = $oldSoldTickets + $totalBookedTicks;
+                $newRemTickets = $oldRemTickets - $totalBookedTicks;
+                Event::where('id', $request['event_id'])
+                    ->update(['sold_tickets' => $newSoldTickets, 'remaining_tickets' => $newRemTickets]);
+
                 $emailAddress = DB::table('users')
                     ->select('email')
                     ->where('id', $request['user_id'])
@@ -92,13 +108,7 @@ class ReservationController extends Controller
                     );
                 }
             } catch (Exception $e) {
-                return new JsonResponse(
-                    [
-                        'success' => false,
-                        'message' => "An error occurred!"
-                    ],
-                    422
-                );
+                return $e;
             }
         }
     }

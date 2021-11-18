@@ -2402,6 +2402,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -65014,6 +65018,10 @@ var render = function () {
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(event.max_attendees))]),
                       _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(event.sold_tickets))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(event.remaining_tickets))]),
+                      _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(event.regular_price))]),
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(event.vip_price))]),
@@ -65482,6 +65490,10 @@ var staticRenderFns = [
         _c("th", [_vm._v("Venue")]),
         _vm._v(" "),
         _c("th", [_vm._v("Max. Attendees")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Sold")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Remaining")]),
         _vm._v(" "),
         _c("th", [_vm._v("Regular Price")]),
         _vm._v(" "),
